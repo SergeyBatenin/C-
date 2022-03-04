@@ -9,13 +9,15 @@ class Program
 
         void ReverseNumber(int num)
         {
-            while (num > 0)
+            string s = "";      //  изменил немного код, чтобы на выходе мы все таки получались снова число
+            while (num > 0)     //  а не строку
             {
-                Console.Write(num%10);
-                num = num /10;
+                s = s + num % 10;
+                num = num / 10;
             }
 
-            Console.WriteLine();
+            int result = Convert.ToInt32(s);
+            Console.WriteLine(result);
         }
     }
 }
