@@ -10,10 +10,14 @@ class Program
 
         double alfa = Math.Atan2(y, x) * 180 / Math.PI;
 
-        if (alfa == 90)
+        if (alfa == 90 || alfa == -90)
             Console.WriteLine("Отрезок перпендикулярен к оси Х");
-        else if (alfa == 0)
+        else if (alfa == 0 || alfa == 180)
             Console.WriteLine("Отрезок АО совпадает с осью Х");
+        else if (alfa < -90)
+            Console.WriteLine("Наименьший угол отрезка АО к оси Х равен = " + (180 + alfa) + " градуса/-ов");
+        else if (alfa < 0 && alfa > -90)
+            Console.WriteLine("Наименьший угол отрезка АО к оси Х равен = " + (-1 * alfa) + " градуса/-ов");
         else if (alfa < 90)
             Console.WriteLine("Наименьший угол отрезка АО к оси Х равен = " + alfa + " градуса/-ов");
         else
