@@ -3,52 +3,45 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Первый игрок введите начальное число от 2 до 9");
-        int num = Convert.ToInt32(Console.ReadLine());
-        int product = num;
-        Console.WriteLine("Текущее количество очков равно - " + product);
-        Console.WriteLine();
+        
+        int product = 1;
+        int player = 2;
+        
         while (true)
         {
-            product = product * SecondPlayer();
+            if (player == 2) player = 1;
+            else player = 2;
+            product = product * Player(player);
+            if (CheckScore(product, player)) break;
+        }
+
+
+        bool CheckScore(int product, int player)
+        {
             if (product >= 1000)
             {
-                Console.WriteLine("Второй игрок победил. Ваш счет - " + product);
-                break;
-            }
-            else 
-            {
-                Console.WriteLine("Текущее количество очков равно - " + product);
-                Console.WriteLine();
-            }
-            product = product * FirstPlayer();
-            if (product >= 1000)
-            {
-                Console.WriteLine("Первый игрок победил. Ваш счет - " + product);
-                break;
+                Console.WriteLine("Игрок №" + player + " победил. Ваш счет - " + product);
+                return true;
             }
             else
             {
                 Console.WriteLine("Текущее количество очков равно - " + product);
                 Console.WriteLine();
+                return false;
             }
         }
 
-
-
-        int FirstPlayer()
+        int Player(int player)
         {
-            Console.WriteLine("Первый игрок ваш ход");
+            Console.WriteLine("Игрок №" + player + " ваш ход");
             Console.WriteLine("Введите ваше число");
             int num = Convert.ToInt32(Console.ReadLine());
-            return num;
-        }
-
-        int SecondPlayer()
-        {
-            Console.WriteLine("Второй игрок ваш ход");
-            Console.WriteLine("Введите ваше число");
-            int num = Convert.ToInt32(Console.ReadLine());
+            while (num < 2 || num > 9)
+            {
+                Console.WriteLine("Некорректный ввод");
+                Console.WriteLine("Введите число от 2 до 9");
+                num = Convert.ToInt32(Console.ReadLine());
+            }
             return num;
         }
     }
