@@ -14,5 +14,8 @@ class Program
         p1.y = 6;
         p1.sym = '+';
         p1.Draw();
-    }    
+        
+        Point p2 = new Point(6, 7, '*');
+        p2.Draw();
+    }
 }
