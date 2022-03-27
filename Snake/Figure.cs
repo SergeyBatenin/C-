@@ -12,12 +12,12 @@ namespace Snake
 
         public void Draw()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            //Console.ForegroundColor = ConsoleColor.Red;
             foreach (Point p in pList)
             {
                 p.Draw();
             }
-            Console.ResetColor();            
+            //Console.ResetColor();            
         }        
     }
 }
