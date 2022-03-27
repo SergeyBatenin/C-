@@ -9,21 +9,20 @@ class Program
 {
     static void Main()
     {
+        //Console.SetBufferSize( 80, 25 );
         Console.Clear();
-        Point p1 = new Point();
-        p1.x = 4;
-        p1.y = 6;
-        p1.sym = '+';
-        p1.Draw();
-        
-        Point p2 = new Point(6, 7, '#');
-        p2.Draw();
+       
+        HorizontalLine topBorder = new HorizontalLine(0,78, 0, '#');
+        HorizontalLine botBorder = new HorizontalLine(0,78, 24, '#');
+        VerticalLine leftLine = new VerticalLine(0, 0, 24, '#');
+        VerticalLine rightLine = new VerticalLine(78, 0, 24, '#');
+        topBorder.Draw();
+        botBorder.Draw();
+        leftLine.Draw();
+        rightLine.Draw();
 
-        HotizontalLine hLine = new HotizontalLine(4, 7, 8, '*');
-        hLine.Draw();
-
-        VerticalLine vLine = new VerticalLine(8, 6, 10, '$');
-        vLine.Draw();             
-
+        Point p = new Point(20, 10, '█');
+        Snake snake = new Snake(p, 4, Direction.RIGHT);
+        snake.Draw();
     }
 }
