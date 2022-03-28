@@ -12,14 +12,10 @@ class Program
         //Console.SetBufferSize( 80, 25 );
         Console.Clear();
 
-        HorizontalLine topBorder = new HorizontalLine(0, 79, 0, '#');
-        HorizontalLine botBorder = new HorizontalLine(0, 79, 24, '#');
-        VerticalLine leftLine = new VerticalLine(0, 0, 24, '#');
-        VerticalLine rightLine = new VerticalLine(79, 0, 24, '#');
-        topBorder.Draw();
-        botBorder.Draw();
-        leftLine.Draw();
-        rightLine.Draw();
+        int count = 0;
+
+        Wall mapBorder = new Wall(80, 25);
+        mapBorder.Draw();
 
         Point p = new Point(20, 10, '█');
         Snake snake = new Snake(p, 4, Direction.RIGHT);
@@ -31,10 +27,18 @@ class Program
 
         while (true)
         {
+            if (mapBorder.isHit(snake) || snake.isHitTail())
+            {
+                Console.Clear();
+                Console.WriteLine("Game over");
+                Console.WriteLine($"Your score = {count}");
+                break;
+            }
             if (snake.Eat(food))
             {
                 food = foodCreator.CreateFood();
                 food.Draw();
+                count++;
             }
             else
             {
@@ -50,5 +54,9 @@ class Program
             }
         }
 
+    }
+    static void Draw( Figure figure )
+    {
+        figure.Draw();
     }
 }
