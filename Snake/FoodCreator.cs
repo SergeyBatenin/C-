@@ -16,8 +16,8 @@ namespace Snake
         public Point CreateFood()
         {
             Point p = new Point();
-            p.x = new Random().Next(2, mapWidth - 2);
-            p.y = new Random().Next(2, mapHeight - 2);
+            p.x = new Random().Next(3, mapWidth - 3);
+            p.y = new Random().Next(3, mapHeight - 3);
             p.sym = sym;
             return p;
         }

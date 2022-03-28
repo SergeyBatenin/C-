@@ -9,7 +9,7 @@ class Program
 {
     static void Main()
     {
-        //Console.SetBufferSize( 80, 25 );
+        Console.SetBufferSize( 80, 25 );
         Console.Clear();
 
         int count = 0;
@@ -17,21 +17,23 @@ class Program
         Wall mapBorder = new Wall(80, 25);
         mapBorder.Draw();
 
-        Point p = new Point(20, 10, '█');
+        Point p = new Point(20, 10, '█');  // 💀
         Snake snake = new Snake(p, 4, Direction.RIGHT);
         snake.Draw();
 
-        FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+        FoodCreator foodCreator = new FoodCreator(80, 25, '$'); // 🐛
         Point food = foodCreator.CreateFood();
         food.Draw();
 
         while (true)
         {
-            if (mapBorder.isHit(snake) || snake.isHitTail())
+            if (mapBorder.IsHit(snake) || snake.IsHitTail())
             {
-                Console.Clear();
+                Console.SetCursorPosition(30,10);
                 Console.WriteLine("Game over");
+                Console.SetCursorPosition(27,11);
                 Console.WriteLine($"Your score = {count}");
+                Console.ReadKey();
                 break;
             }
             if (snake.Eat(food))

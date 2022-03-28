@@ -32,7 +32,7 @@ namespace Snake
             head.Draw();
         }
 
-        internal bool isHitTail()
+        internal bool IsHitTail()
         {
             var head = pList.Last();
             for (int i = 0; i < pList.Count - 2; i++)
@@ -53,13 +53,13 @@ namespace Snake
 
         public void HandleKey(ConsoleKey key)
         {
-            if (key == ConsoleKey.LeftArrow)
+            if (direction != Direction.RIGHT && key == ConsoleKey.LeftArrow)
                 direction = Direction.LEFT;
-            else if (key == ConsoleKey.RightArrow)
+            else if (direction != Direction.LEFT && key == ConsoleKey.RightArrow)
                 direction = Direction.RIGHT;
-            else if (key == ConsoleKey.UpArrow)
+            else if (direction != Direction.DOWN && key == ConsoleKey.UpArrow)
                 direction = Direction.UP;
-            else if (key == ConsoleKey.DownArrow)
+            else if (direction != Direction.UP && key == ConsoleKey.DownArrow)
                 direction = Direction.DOWN;
         }
         internal bool Eat(Point food)

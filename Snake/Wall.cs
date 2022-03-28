@@ -7,17 +7,17 @@ namespace Snake
         public Wall(int mapWidth, int mapHeight)
         {
             wallList = new List<Figure>();
-            HorizontalLine topBorder = new HorizontalLine(1, mapWidth - 1, 1, '#');
-            HorizontalLine botBorder = new HorizontalLine(1, mapWidth - 1, mapHeight - 1, '#');
-            VerticalLine leftBorder = new VerticalLine(1, 1, mapHeight - 1, '#');
-            VerticalLine rightBorder = new VerticalLine(mapWidth - 1, 1, mapHeight - 1, '#');
+            HorizontalLine topBorder = new HorizontalLine(2, mapWidth - 2, 2, '#');
+            HorizontalLine botBorder = new HorizontalLine(2, mapWidth - 2, mapHeight - 2, '#');
+            VerticalLine leftBorder = new VerticalLine(2, 2, mapHeight - 2, '#');
+            VerticalLine rightBorder = new VerticalLine(mapWidth - 2, 2, mapHeight - 2, '#');
             wallList.Add(topBorder);
             wallList.Add(botBorder);
             wallList.Add(leftBorder);
             wallList.Add(rightBorder);
         }
 
-        internal bool isHit(Figure figure)
+        internal bool IsHit(Figure figure)
         {
             foreach (var wall in wallList)
             {
