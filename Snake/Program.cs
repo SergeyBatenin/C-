@@ -11,9 +11,9 @@ class Program
     {
         //Console.SetBufferSize( 80, 25 );
         Console.Clear();
-       
-        HorizontalLine topBorder = new HorizontalLine(0,78, 0, '#');
-        HorizontalLine botBorder = new HorizontalLine(0,78, 24, '#');
+
+        HorizontalLine topBorder = new HorizontalLine(0, 78, 0, '#');
+        HorizontalLine botBorder = new HorizontalLine(0, 78, 24, '#');
         VerticalLine leftLine = new VerticalLine(0, 0, 24, '#');
         VerticalLine rightLine = new VerticalLine(78, 0, 24, '#');
         topBorder.Draw();
@@ -24,22 +24,17 @@ class Program
         Point p = new Point(20, 10, '█');
         Snake snake = new Snake(p, 4, Direction.RIGHT);
         snake.Draw();
-        snake.Move();
-        Thread.Sleep(300);
-        snake.Move();
-        Thread.Sleep(300);
-        snake.Move();
-        Thread.Sleep(300);
-        snake.Move();
-        Thread.Sleep(300);
-        snake.Move();
-        Thread.Sleep(300);
-        snake.Move();
-        Thread.Sleep(300);
-        snake.Move();
-        Thread.Sleep(300);
-        snake.Move();
-        Thread.Sleep(300);
-        
+
+        while (true)
+        {
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo key = Console.ReadKey();
+                snake.HandleKey(key.Key);
+            }
+            Thread.Sleep(100);
+            snake.Move();
+        }
+
     }
 }
