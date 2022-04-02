@@ -8,7 +8,7 @@ class Program
 
     static void Main()
     {
-        int[,] first = FillArray(4, 3);     // Размеры матриц можно менять, проверка сделана в методе
+        int[,] first = FillArray(5, 3);     // Размеры матриц можно менять, проверка сделана в методе
         int[,] second = FillArray(3, 4);    // Должно работать при любых размерах матриц
 
         PrintArray(first);
@@ -41,7 +41,7 @@ class Program
         int secondRow = second.GetLength(0);
         int secondColumn = second.GetLength(1);
 
-        if (firstColumn == secondRow && secondColumn == firstRow)
+        if (firstColumn == secondRow)
         {
             int[,] result = new int[firstRow, secondColumn];
 
